@@ -4,9 +4,9 @@ const urlsToCache = [
   "style.css",
   "app.js",
   "newpage.html",
-  "manifest.json",
-  "icon-192x192.png",
-  "icon-512x512.png",
+  "LOCAL-Storage/manifest.json",
+  "LOCAL-Storage/icon-192x192.png",
+  "LOCAL-Storage/icon-512x512.png",
 ];
 
 // تثبيت Service Worker
