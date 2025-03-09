@@ -1,6 +1,6 @@
 {
-  "name": "IndexedDBv",
-  "short_name": "IndexedDB",
+  "name": "Local",
+  "short_name": "Local",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",

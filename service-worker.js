@@ -4,9 +4,8 @@ const urlsToCache = [
   "style.css",
   "app.js",
   "newpage.html",
-  "indexeddb.js",
-  "IndexedDB/manifest.json",
-  "IndexedDB/icon-192x192.png",
+  "LOCAL/manifest.json",
+  "LOCAL/icon-192x192.png",
 ];
 
 // تثبيت Service Worker
