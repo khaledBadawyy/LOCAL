@@ -5,8 +5,8 @@ const urlsToCache = [
   "/manifest.json",
   "/icon-192x192.png",
   "/icon-512x512.png",
-  "/output.css",
-  "/service-worker.js",
+  "/src/output.css",
+  "/src/service-worker.js",
 ];
 
 // 🟢 تثبيت Service Worker وتخزين الملفات
