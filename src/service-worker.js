@@ -7,7 +7,7 @@ const urlsToCache = [
   "/icon-192x192.png",
   "/icon-512x512.png",
   "/src/output.css",
-  "/src/service-worker.js",
+  //   "/src/service-worker.js",
 ];
 
 // 🟢 تثبيت Service Worker وتخزين الملفات
