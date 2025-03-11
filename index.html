@@ -13,17 +13,10 @@
     <link rel="manifest" href=" manifest.json">
     <link rel="icon" href="icon-192x192.png">
     <link rel="icon" href="icon-512x512.png">
-    <script>
-        function loadFromCache() {
-            let cachedData = localStorage.getItem('cachedData');
-            if (cachedData) {
-                document.getElementById('dataInput').value = cachedData;
-            }
-        }
-    </script>
+ 
 </head>
 
-<body onload="loadFromCache()">
+<body>
     <div class="my-4 text-center">
         <a href="newpage.html" class="text-primary font-bold border border-primary p-3 rounded-md"><button>الذهاب إلى
                 الصفحة الجديدة</button></a>
@@ -163,19 +156,7 @@
 
     </div>
 
-
-
-
-
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('service-worker.js')
-                    .then(reg => console.log("Service Worker مسجل بنجاح", reg))
-                    .catch(err => console.error("فشل تسجيل Service Worker", err));
-            });
-        }
-    </script>
+ 
     <script defer src="service-worker.js"></script>
 
     <script defer src="app.js"></script>

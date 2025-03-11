@@ -1,7 +1,8 @@
-const CACHE_NAME = "my-cache-v2";
+const CACHE_NAME = "namaa-cache-v1"; // اسم الكاش مع الإصدار
 const urlsToCache = [
+  "/",
   "index.html",
-  "style.css",
+  "src/output.css",
   "app.js",
   "newpage.html",
   "manifest.json",
@@ -9,43 +10,33 @@ const urlsToCache = [
   "icon-512x512.png",
 ];
 
-// تثبيت Service Worker
+// 🟢 تثبيت Service Worker وتخزين الملفات
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(urlsToCache).catch((error) => {
-        console.error("Failed to cache files:", error);
-      });
+      return cache.addAll(urlsToCache);
     })
   );
 });
 
-// استجابة الطلبات من الكاش
+// 🟢 جلب البيانات من الكاش أولاً ثم الشبكة عند الضرورة
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
-      return (
-        response ||
-        fetch(event.request).catch((error) => {
-          console.error("Fetch failed:", error);
-        })
-      );
+      return response || fetch(event.request);
     })
   );
 });
 
-// تحديث الكاش عند تغيير الملفات
+// 🟢 تحديث الكاش عند وجود إصدار جديد
 self.addEventListener("activate", (event) => {
-  const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
-    caches.keys().then((cacheNames) =>
-      Promise.all(
-        cacheNames.map((cacheName) => {
-          if (!cacheWhitelist.includes(cacheName)) {
-            return caches.delete(cacheName);
-          }
-        })
-      )
-    )
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames
+          .filter((name) => name !== CACHE_NAME)
+          .map((name) => caches.delete(name))
+      );
+    })
   );
 });
