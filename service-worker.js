@@ -1,13 +1,12 @@
 const CACHE_NAME = "namaa-cache-v1"; // اسم الكاش مع الإصدار
 const urlsToCache = [
-  "/",
   "/index.html",
   "/app.js",
   "/manifest.json",
   "/icon-192x192.png",
   "/icon-512x512.png",
-  "/src/output.css",
-  //   "/src/service-worker.js",
+  "/output.css",
+  "/service-worker.js",
 ];
 
 // 🟢 تثبيت Service Worker وتخزين الملفات
