@@ -4,17 +4,17 @@ const urlsToCache = [
   "style.css",
   "app.js",
   "newpage.html",
-  " manifest.json",
-  " icon-192x192.png",
-  " icon-512x512.png",
+  "manifest.json",
+  "icon-192x192.png",
+  "icon-512x512.png",
 ];
 
 // تثبيت Service Worker
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(urlsToCache).then(() => {
-        console.log("تم تخزين جميع الملفات في الكاش بنجاح!");
+      return cache.addAll(urlsToCache).catch((error) => {
+        console.error("Failed to cache files:", error);
       });
     })
   );
@@ -24,7 +24,12 @@ self.addEventListener("install", (event) => {
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
+      return (
+        response ||
+        fetch(event.request).catch((error) => {
+          console.error("Fetch failed:", error);
+        })
+      );
     })
   );
 });

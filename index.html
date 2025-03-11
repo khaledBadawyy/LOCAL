@@ -4,8 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Alpine Core -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <title>تخزين البيانات في الكاش</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./src/output.css">
     <link rel="manifest" href=" manifest.json">
     <link rel="icon" href="icon-192x192.png">
     <link rel="icon" href="icon-512x512.png">
@@ -20,10 +24,149 @@
 </head>
 
 <body onload="loadFromCache()">
-    <h1>مرحبًا بك في IndexedDB!</h1>
-    <p>سيتم تحميل JavaScript و CSS من IndexedDB.</p>
-    <button onclick="applyStyle()"> لون الخلفية</button>
-    <a href="newpage.html"><button>الذهاب إلى الصفحة الجديدة</button></a>
+    <div class="my-4 text-center">
+        <a href="newpage.html" class="text-primary font-bold border border-primary p-3 rounded-md"><button>الذهاب إلى
+                الصفحة الجديدة</button></a>
+    </div>
+
+
+    <div class="container mb-10">
+
+        <div x-data="{ tab: 'all'}">
+            <div class="flex justify-center">
+                <div class="overflow-x-auto px-1">
+                    <div class="flex justify-center gap-9 min-w-max w-fit relative">
+                        <a class="px-8 flex justify-center items-center py-[7px] relative text-xl font-normal border border-primary hover:bg-primary   min-w-fit rounded-[10px] maxlg:text-base maxlg:py-[4px] cursor-pointer active_tab"
+                            :class="{'active_tab' : tab == 'all'}" @click="tab = 'all'">All</a>
+                        <a class="px-8 flex justify-center items-center py-[7px] relative text-xl font-normal border border-primary  hover:bg-primary   min-w-fit rounded-[10px] maxlg:text-base maxlg:py-[4px] cursor-pointer"
+                            :class="{'active_tab' : tab == '3'}" @click="tab = '3'">Medical</a>
+                        <a class="px-8 flex justify-center items-center py-[7px] relative text-xl font-normal border border-primary  hover:bg-primary    min-w-fit rounded-[10px] maxlg:text-base maxlg:py-[4px] cursor-pointer"
+                            :class="{'active_tab' : tab == '6'}" @click="tab = '6'">Administrative</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10">
+                <div class="" x-show="tab =='all'">
+                    <div class=" ">
+                        <p class=" pb-6 "> <span class="font-bold"> Namaa AlKhaleej's Signature Developments:</span>
+
+                            At Namaa AlKhaleej Real Estate Development, our portfolio stands as a testament to our
+                            commitment to
+                            architectural excellence and innovative design. Among our landmark projects are Mehwar
+                            Plaza, a blend of
+                            sophisticated residential units and dynamic commercial spaces; R7 Mall, a retail paradise
+                            offering a
+                            diverse range of shopping outlets, dining options, and entertainment zones; and Center 9, a
+                            modern
+                            mixed-use development that seamlessly integrates luxury living with top-tier commercial
+                            offerings. Each
+                            development underscores our dedication to creating spaces that resonate with quality,
+                            functionality, and
+                            aesthetic appeal, setting new benchmarks in the real estate sector.
+                        </p>
+                        <p class=" pb-6 "> <span class="font-bold"> Namaa AlKhaleej's Signature Developments:</span>
+
+                            At Namaa AlKhaleej Real Estate Development, our portfolio stands as a testament to our
+                            commitment to
+                            architectural excellence and innovative design. Among our landmark projects are Mehwar
+                            Plaza, a blend of
+                            sophisticated residential units and dynamic commercial spaces; R7 Mall, a retail paradise
+                            offering a
+                            diverse range of shopping outlets, dining options, and entertainment zones; and Center 9, a
+                            modern
+                            mixed-use development that seamlessly integrates luxury living with top-tier commercial
+                            offerings. Each
+                            development underscores our dedication to creating spaces that resonate with quality,
+                            functionality, and
+                            aesthetic appeal, setting new benchmarks in the real estate sector.
+                        </p>
+                        <p class=" pb-6 "> <span class="font-bold"> Namaa AlKhaleej's Signature Developments:</span>
+
+                            At Namaa AlKhaleej Real Estate Development, our portfolio stands as a testament to our
+                            commitment to
+                            architectural excellence and innovative design. Among our landmark projects are Mehwar
+                            Plaza, a blend of
+                            sophisticated residential units and dynamic commercial spaces; R7 Mall, a retail paradise
+                            offering a
+                            diverse range of shopping outlets, dining options, and entertainment zones; and Center 9, a
+                            modern
+                            mixed-use development that seamlessly integrates luxury living with top-tier commercial
+                            offerings. Each
+                            development underscores our dedication to creating spaces that resonate with quality,
+                            functionality, and
+                            aesthetic appeal, setting new benchmarks in the real estate sector.
+                        </p>
+
+                    </div>
+                </div>
+                <div class="" x-show="tab =='3'" style="display: none;">
+                    <div class=" ">
+                        <p class=" pb-6 "> <span class="font-bold"> Namaa AlKhaleej's Signature Developments:</span>
+
+                            At Namaa AlKhaleej Real Estate Development, our portfolio stands as a testament to our
+                            commitment to
+                            architectural excellence and innovative design. Among our landmark projects are Mehwar
+                            Plaza, a blend of
+                            sophisticated residential units and dynamic commercial spaces; R7 Mall, a retail paradise
+                            offering a
+                            diverse range of shopping outlets, dining options, and entertainment zones; and Center 9, a
+                            modern
+                            mixed-use development that seamlessly integrates luxury living with top-tier commercial
+                            offerings. Each
+                            development underscores our dedication to creating spaces that resonate with quality,
+                            functionality, and
+                            aesthetic appeal, setting new benchmarks in the real estate sector.
+                        </p>
+                        <p class=" pb-6 "> <span class="font-bold"> Namaa AlKhaleej's Signature Developments:</span>
+
+                            At Namaa AlKhaleej Real Estate Development, our portfolio stands as a testament to our
+                            commitment to
+                            architectural excellence and innovative design. Among our landmark projects are Mehwar
+                            Plaza, a blend of
+                            sophisticated residential units and dynamic commercial spaces; R7 Mall, a retail paradise
+                            offering a
+                            diverse range of shopping outlets, dining options, and entertainment zones; and Center 9, a
+                            modern
+                            mixed-use development that seamlessly integrates luxury living with top-tier commercial
+                            offerings. Each
+                            development underscores our dedication to creating spaces that resonate with quality,
+                            functionality, and
+                            aesthetic appeal, setting new benchmarks in the real estate sector.
+                        </p>
+
+                    </div>
+
+                </div>
+                <div class="" x-show="tab =='6'" style="display: none;">
+                    <div class=" ">
+                        <p class=" pb-6 "> <span class="font-bold"> Namaa AlKhaleej's Signature Developments:</span>
+
+                            At Namaa AlKhaleej Real Estate Development, our portfolio stands as a testament to our
+                            commitment to
+                            architectural excellence and innovative design. Among our landmark projects are Mehwar
+                            Plaza, a blend of
+                            sophisticated residential units and dynamic commercial spaces; R7 Mall, a retail paradise
+                            offering a
+                            diverse range of shopping outlets, dining options, and entertainment zones; and Center 9, a
+                            modern
+                            mixed-use development that seamlessly integrates luxury living with top-tier commercial
+                            offerings. Each
+                            development underscores our dedication to creating spaces that resonate with quality,
+                            functionality, and
+                            aesthetic appeal, setting new benchmarks in the real estate sector.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {

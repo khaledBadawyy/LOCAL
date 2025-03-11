@@ -4,8 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Alpine Core -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
     <title>صفحة جديدة</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./src/output.css">
     <link rel="manifest" href=" manifest.json">
     <link rel="icon" href=" icon-192x192.png">
     <link rel="icon" href=" icon-512x512.png">
@@ -20,10 +25,33 @@
 </head>
 
 <body onload="loadFromCache()">
-    <h1>مرحبًا بك في الصفحة الجديدة!</h1>
-    <p>سيتم تحميل JavaScript و CSS من IndexedDB.</p>
-    <button onclick="applyStyle()"> لون الخلفية</button>
-    <a href="index.html"> <button>الذهاب إلى الصفحة الرئيسية</button> </a>
+
+    <div class="my-4 text-center">
+        <a href="index.html" class="text-primary font-bold border border-primary p-3 rounded-md"> <button>الذهاب إلى
+                الصفحة
+                الرئيسية</button> </a>
+    </div>
+
+
+    <p class=" pb-6 px-5 "> <span class="font-bold"> Namaa AlKhaleej's Signature Developments:</span>
+
+        At Namaa AlKhaleej Real Estate Development, our portfolio stands as a testament to our
+        commitment to
+        architectural excellence and innovative design. Among our landmark projects are Mehwar
+        Plaza, a blend of
+        sophisticated residential units and dynamic commercial spaces; R7 Mall, a retail paradise
+        offering a
+        diverse range of shopping outlets, dining options, and entertainment zones; and Center 9, a
+        modern
+        mixed-use development that seamlessly integrates luxury living with top-tier commercial
+        offerings. Each
+        development underscores our dedication to creating spaces that resonate with quality,
+        functionality, and
+        aesthetic appeal, setting new benchmarks in the real estate sector.
+    </p>
+
+
+
 
     <script>
         if ('serviceWorker' in navigator) {
