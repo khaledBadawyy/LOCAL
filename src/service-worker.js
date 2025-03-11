@@ -13,8 +13,17 @@ const urlsToCache = [
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(urlsToCache).catch((error) => {
-        console.error("فشل في إضافة الملفات إلى الكاش:", error); // إضافة معالجة الأخطاء
+      return Promise.all(
+        urlsToCache.map((url) => {
+          return fetch(url).then((response) => {
+            if (!response.ok) {
+              throw new Error(`فشل في جلب ${url}: ${response.status}`);
+            }
+            return cache.add(url);
+          });
+        })
+      ).catch((error) => {
+        console.error("فشل في إضافة الملفات إلى الكاش:", error);
       });
     })
   );
@@ -27,7 +36,7 @@ self.addEventListener("fetch", (event) => {
       return (
         response ||
         fetch(event.request).catch((error) => {
-          console.error("فشل في جلب البيانات:", error); // إضافة معالجة الأخطاء
+          console.error("فشل في جلب البيانات:", error);
         })
       );
     })
