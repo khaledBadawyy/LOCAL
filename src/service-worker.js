@@ -1,4 +1,4 @@
-const CACHE_NAME = "namaa-cache-v2";  
+const CACHE_NAME = "namaa-cache-v2";
 const urlsToCache = [
   "/index.html",
   "/app.js",
@@ -6,14 +6,16 @@ const urlsToCache = [
   "/icon-192x192.png",
   "/icon-512x512.png",
   "/src/output.css",
-  "/src/service-worker.js",
+  // "/src/service-worker.js", // يمكنك إزالة هذا إذا لم يكن ضروريًا
 ];
 
 // 🟢 تثبيت Service Worker وتخزين الملفات
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(urlsToCache);
+      return cache.addAll(urlsToCache).catch((error) => {
+        console.error("فشل في إضافة الملفات إلى الكاش:", error); // إضافة معالجة الأخطاء
+      });
     })
   );
 });
@@ -22,7 +24,12 @@ self.addEventListener("install", (event) => {
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
+      return (
+        response ||
+        fetch(event.request).catch((error) => {
+          console.error("فشل في جلب البيانات:", error); // إضافة معالجة الأخطاء
+        })
+      );
     })
   );
 });
