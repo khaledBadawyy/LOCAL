@@ -723,6 +723,10 @@ video {
   color: rgb(35 65 143 / var(--tw-text-opacity, 1));
 }
 
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
