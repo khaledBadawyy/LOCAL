@@ -1,6 +1,5 @@
 const CACHE_NAME = "namaa-cache-v1"; // اسم الكاش مع الإصدار
 const urlsToCache = [
-  "/",
   "index.html",
   "src/output.css",
   "app.js",
