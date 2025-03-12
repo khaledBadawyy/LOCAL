@@ -6,6 +6,8 @@ const urlsToCache = [
   "/icon-192x192.png",
   "/icon-512x512.png",
   "/src/output.css",
+  "/src/alpine.js",
+  "/src/aos.css",
   "/src/service-worker.js",
 ];
 
