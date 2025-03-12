@@ -1,13 +1,14 @@
 const CACHE_NAME = "namaa-cache-v2";
 const urlsToCache = [
-  "./index.html",
-  "./app.js",
-  "./manifest.json",
-  "./icon-192x192.png",
-  "./icon-512x512.png",
-  "./src/output.css",
-  "./src/alpine.js",
-  "./src/aos.css",
+  "/index.html",
+  "/app.js",
+  "/manifest.json",
+  "/icon-192x192.png",
+  "/icon-512x512.png",
+  "/src/output.css",
+  "/src/alpine.js",
+  "/src/aos.css",
+  "/src/service-worker.js",
 ];
 
 // Install Service Worker and store files
