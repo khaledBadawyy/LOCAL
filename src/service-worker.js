@@ -6,10 +6,10 @@ const urlsToCache = [
   "/icon-192x192.png",
   "/icon-512x512.png",
   "/src/output.css",
-  // "/src/service-worker.js", // يمكنك إزالة هذا إذا لم يكن ضروريًا
+  "/src/service-worker.js",
 ];
 
-// 🟢 تثبيت Service Worker وتخزين الملفات
+// Install Service Worker and store files
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -17,33 +17,33 @@ self.addEventListener("install", (event) => {
         urlsToCache.map((url) => {
           return fetch(url).then((response) => {
             if (!response.ok) {
-              throw new Error(`فشل في جلب ${url}: ${response.status}`);
+              throw new Error(`error (not-found) ${url}: ${response.status}`);
             }
             return cache.add(url);
           });
         })
       ).catch((error) => {
-        console.error("فشل في إضافة الملفات إلى الكاش:", error);
+        console.error("Shell in adding files to cache", error);
       });
     })
   );
 });
 
-// 🟢 جلب البيانات من الكاش أولاً ثم الشبكة عند الضرورة
+//   Fetch data from cache first and then network if necessary
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
       return (
         response ||
         fetch(event.request).catch((error) => {
-          console.error("فشل في جلب البيانات:", error);
+          console.error("Failed to fetch data:", error);
         })
       );
     })
   );
 });
 
-// 🟢 تحديث الكاش عند وجود إصدار جديد
+//   Update cache when there is a new version
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
