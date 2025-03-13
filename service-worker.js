@@ -8,7 +8,7 @@ const urlsToCache = [
   "/LOCAL/src/output.css",
   "/LOCAL/src/alpine.js",
   "/LOCAL/src/aos.css",
-  "/LOCAL/src/service-worker.js",
+  "/LOCAL/service-worker.js",
 ];
 
 // Install Service Worker and store files
